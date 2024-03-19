@@ -1,0 +1,4 @@
+我挣扎了，但我自己写不清楚呜呜，后面我写main的时候发现自己的实现还是错的，就让chatGPT帮我写了一版。。
+代码在src的NumberToRowUtil.kt里，测试代码在对应的NumberToRowUtilTest.kt里
+程序入口在main.kt里，我加了NumberToRowUtil里的方法，想要实验的话可以修改第13行调用numberToRowUtil.numberToRow(1,19)的这两个参数，然后就可以看到控制台的输出啦
+最后感谢帮我reviw！
