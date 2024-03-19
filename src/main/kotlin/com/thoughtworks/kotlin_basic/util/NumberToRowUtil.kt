@@ -1,24 +1,32 @@
 package com.thoughtworks.kotlin_basic.util
 
+import com.sun.org.apache.xpath.internal.operations.Variable
+
 class NumberToRowUtil {
     fun numberToRow(a: Int, b: Int): Array<String?> {
         val resultArray = Array<String?>(b) {null}
         for(i in a..<a + b){
-            var theLastCharInt = i
-            var theMiddleCharInt:Int? = null
-            if(i>26){
-                theLastCharInt = i.div(26)
-                theMiddleCharInt = a/26
-            }
-            var theLastChar: Char = intToChar(theLastCharInt)
-            val theMiddleChar: Char? = theMiddleCharInt?.let { intToChar(it) }
-            var resultString = theMiddleChar?.let { it.toString() + theLastChar.toString()} ?: theLastChar.toString()
-            resultArray[i-a] = resultString
+            if(i<=26)
+                resultArray[i-a] = intToChar(i%26).toString()
+            if(i>26 && i<702)
+                resultArray[i-a] = intToChar(i).toString() +intToChar(i%26).toString()
+            if(i == 702)
+                resultArray[i-a] = "ZZ"
+            if(i>702 && i<=18278)
+                resultArray[i-a] = intToChar(i-672).toString()+intToChar(i-672).toString() +intToChar(i%26).toString()
+            if(i>18278)
+                throw Exception("数据超出规定大小")
         }
         return resultArray
     }
 
     private fun intToChar(row: Int): Char {
-        return ('A'.code + row - 1).toChar()
+        if(row==0)
+            return 'Z'
+        var a = row
+        while(a>26) {
+            a /= 26
+        }
+        return ('A'.code + a -1).toChar()
     }
 }
