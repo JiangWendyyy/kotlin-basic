@@ -7,7 +7,7 @@ class NumberToRowUtilTest {
     @Test
     fun `1,2 to A,B`() {
         val numberToRowUtil = NumberToRowUtil()
-        var result = arrayOf("A","B")
+        val result = arrayOf("A","B")
         assertTrue(result.contentEquals(numberToRowUtil.numberToRow(1, 2)))
     }
 }
