@@ -1,30 +1,20 @@
 package com.thoughtworks.kotlin_basic.util
 
 class NumberToRowUtil {
-    fun numberToRow(a: Int, b: Int): Array<String?> {
-        val resultArray = Array<String?>(b) {null}
+    fun numberToRow(a: Int, b: Int): Array<String> {
+        val resultArray = Array(b){ null.toString() }
         for(i in a..<a + b){
-            if(i<=26)
-                resultArray[i-a] = intToChar(i%26).toString()
-            if(i in 27..701)
-                resultArray[i-a] = intToChar(i).toString() +intToChar(i%26).toString()
-            if(i == 702)
-                resultArray[i-a] = "ZZ"
-            if(i in 703..18278)
-                resultArray[i-a] = intToChar(i-672).toString()+intToChar(i-672).toString() +intToChar(i%26).toString()
             if(i>18278)
                 throw Exception("数据超出规定大小")
+            val sb = StringBuilder()
+            var number = i
+            while (number > 0) {
+                val remainder = (number - 1) % 26
+                sb.append('A' + remainder)
+                number = (number - 1) / 26
+            }
+            resultArray[i-a] = sb.reverse().toString()
         }
         return resultArray
-    }
-
-    private fun intToChar(row: Int): Char {
-        if(row==0)
-            return 'Z'
-        var a = row
-        while(a>26) {
-            a /= 26
-        }
-        return ('A'.code + a -1).toChar()
     }
 }

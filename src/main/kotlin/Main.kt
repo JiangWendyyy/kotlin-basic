@@ -6,11 +6,12 @@ fun main(args: Array<String>) {
     println("Program arguments: ${args.joinToString()}")
 
     val printUtil = PrintUtil()
-    var numberToRowUtil = NumberToRowUtil()
+    val numberToRowUtil = NumberToRowUtil()
     // Try adding program arguments via Run/Debug configuration.
     // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
 
-    val headers = listOf("ID", "Name", "Occupation")
+    val row = numberToRowUtil.numberToRow(1,19)
+    val headers = row.toList()
     val rows = listOf(
         listOf("1", "Alice", "Software Engineer"),
         listOf("2", "Bob", "Data Scientist"),
