@@ -1,4 +1,4 @@
-import com.thoughtworks.kotlin_basic.util.NumberToRowUtil
+import com.thoughtworks.kotlin_basic.util.NumberToExcelRowUtil
 import com.thoughtworks.kotlin_basic.util.PrintUtil
 
 fun main(args: Array<String>) {
@@ -6,11 +6,11 @@ fun main(args: Array<String>) {
     println("Program arguments: ${args.joinToString()}")
 
     val printUtil = PrintUtil()
-    val numberToRowUtil = NumberToRowUtil()
+    val numberToExcelRowUtil = NumberToExcelRowUtil()
     // Try adding program arguments via Run/Debug configuration.
     // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
 
-    val row = numberToRowUtil.numberToRow(1,19)
+    val row = numberToExcelRowUtil.numberToExcelRow(1,19)
     val headers = row.toList()
     val rows = listOf(
         listOf("1", "Alice", "Software Engineer"),
