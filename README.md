@@ -2,3 +2,6 @@
 代码在src的NumberToRowUtil.kt里，测试代码在对应的NumberToRowUtilTest.kt里
 程序入口在main.kt里，我加了NumberToRowUtil里的方法，想要实验的话可以修改第13行调用numberToRowUtil.numberToRow(1,19)的这两个参数，然后就可以看到控制台的输出啦
 最后感谢帮我reviw！
+
+
+我按照review后的意见修改了一下，然后把输入参数的方式改成了编辑configuration，代码里用args[0]这种类型的方式替换了，现在可以不用改代码直接输入参数运行了
